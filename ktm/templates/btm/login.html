@@ -1,0 +1,16 @@
+{% extends 'btm/base.html'%}
+{%block body%}
+<div class="jumbotron">
+  <h3>Please login in </h3>
+  <a href="{% url 'btm:register'%}" > <h4>Register</h4></a>
+  <form  action="{% url 'btm:user_login' %}" method="post">
+    {% csrf_token %}
+    <label for="Username">Username:</label>
+    <input type="text" name="Username"placeholder="Enter Username" >
+    <label for="Password">Password:</label>
+    <input type="password" name=" password">
+
+    <input type="submit" name="" value="Login">
+  </form>
+</div>
+{%endblock%}

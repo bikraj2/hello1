@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'index'%}">DJANGO</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index'%}"></a>Admin</li>
+          <li><a class="navbar-link" href="{% url 'btm:register'%}">register</a></li>
+
+          {%if user.is_authenticated %}
+          <li> <a class='navbar-link' href="{% url 'logout'%}">logout</a> </li>
+          {%else%}
+          <li> <a class ="navbar-link"href="{% url 'btm:user_login'%}">login</a> </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block body%}
+      {% endblock %}
+
+
+    </div>
+
+  </body>
+</html>
